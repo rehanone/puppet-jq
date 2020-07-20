@@ -1,87 +1,97 @@
 # jq
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/docs/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
+[![Puppet Forge](http://img.shields.io/puppetforge/v/rehan/jq.svg)](https://forge.puppetlabs.com/rehan/jq) [![Build Status](https://travis-ci.org/rehanone/puppet-jq.svg?branch=master)](https://travis-ci.org/rehanone/puppet-jq)
 
 #### Table of Contents
 
 1. [Description](#description)
 2. [Setup - The basics of getting started with jq](#setup)
-    * [What jq affects](#what-jq-affects)
+    * [Basic usage](#basics)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with jq](#beginning-with-jq)
 3. [Usage - Configuration options and additional functionality](#usage)
+    * [Classes](#classes)
 4. [Limitations - OS compatibility, etc.](#limitations)
-5. [Development - Guide for contributing to the module](#development)
+5. [Dependencies - Other modules used by this module.](#dependencies)
+6. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module is what they want.
+`jq` is a lightweight and flexible command-line JSON processor. This module can manage installation and configuration of [jq](https://stedolan.github.io/jq/).
+It downloads the jq binaries from the github [releases](https://github.com/stedolan/jq/releases).
 
 ## Setup
 
-### What jq affects **OPTIONAL**
+### Basics
 
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
+In order to install `rehan-jq`, run the following command:
+```bash
+$ puppet module install rehan-jq
+```
+The module can be used with `hiera` to provide all configuration options. See [Usage](#usage) for examples on how to configure it.
 
-If there's more that they should know about, though, this is the place to mention:
+### Setup Requirements
 
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+This module is designed to be as clean and compliant with latest puppet code guidelines. It works with:
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
-
-### Beginning with jq
-
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+  - `puppet >=5.5.10`
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+### Classes
 
-## Reference
+#### `jq`
 
-This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
-
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-For example:
-
+A basic install with the defaults would be:
+```puppet
+include jq
 ```
-### `pet::cat`
 
-#### Parameters
-
-##### `meow`
-
-Enables vocalization in your cat. Valid options: 'string'.
-
-Default: 'medium-loud'.
+Otherwise using the parameters:  
+```puppet
+  class{ 'jq':
+    download_version => '1.6',
+    download_url     => 'https://github.com/stedolan/jq/releases/download',
+    download_dir     => '/opt/jq',
+    install_dir      => '/usr/local/bin',
+  }
 ```
+
+##### Parameters
+
+* **download_version**: The version of `jq` to install. The default is the latest version available.
+* **download_url**: Download URL for `jq`. The default is github releases page of `jq`.
+* **download_dir**: Location where the `jq` binaries are being downloaded. Defaults to `/opt/jq`
+* **install_dir**: Location where the `jq` binaries are linked to that makes them available to system path. Defaults to `/usr/local/bin`.
+
+
+All of this data can be provided through `Hiera`. 
+
+**YAML**
+```yaml
+jq::download_version: '1.6'
+jq::download_url: 'https://github.com/stedolan/jq/releases/download'
+jq::download_dir: '/opt/jq'
+jq::install_dir: '/usr/local/bin'
+```
+
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+Currently, this module only supports Linux based systems.
+
+## Dependencies
+
+* [stdlib][1]
+* [wget][2]
+
+[1]:https://forge.puppet.com/puppetlabs/stdlib
+[2]:https://forge.puppet.com/rehan/wget
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
+You can submit pull requests and create issues through the official page of this module on [GitHub](https://github.com/rehanone/puppet-jq).
 
-## Release Notes/Contributors/Etc. **Optional**
+For more details about the development workflow and on how to contribute,
+please check the [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+Please do report any bug and suggest new features/improvements.
