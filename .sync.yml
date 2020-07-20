@@ -1,0 +1,14 @@
+---
+appveyor.yml:
+  delete: true
+
+.gitlab-ci.yml:
+  delete: true
+
+locales/config.yaml:
+  copyright_holder: 'Rehan Mahmood'
+  comments_tag: 'TRANSLATOR'
+  bugs_address: 'https://github.com/rehanone'
+  default_locale: 'en'
+  source_files:
+    - './lib/**/*.rb'
