@@ -1,6 +1,5 @@
 ---
 
-jq::wget_manage: true
 jq::download_version: '1.6'
 jq::download_url: 'https://github.com/stedolan/jq/releases/download'
 jq::download_dir: '/opt/jq'

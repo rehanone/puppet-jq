@@ -1,6 +1,5 @@
 
 class jq (
-  Boolean               $wget_manage,
   String[1]             $download_version,
   Stdlib::Httpsurl      $download_url,
   Stdlib::Absolutepath  $download_dir,
