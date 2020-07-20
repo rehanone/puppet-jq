@@ -2,9 +2,11 @@
   "name": "rehan-jq",
   "version": "0.1.0",
   "author": "Rehan Mahmood",
-  "summary": "",
+  "summary": "Install, manage and configure jq in puppet",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/rehanone/puppet-jq.git",
+  "project_page": "https://github.com/rehanone/puppet-jq",
+  "issues_url": "https://github.com/rehanone/puppet-jq/issues",
   "dependencies": [
     {
       "name": "puppetlabs-stdlib",
@@ -17,45 +19,43 @@
   ],
   "operatingsystem_support": [
     {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7",
+        "8"
+      ]
+    },
+    {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "7"
+        "6",
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "OracleLinux",
       "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "RedHat",
-      "operatingsystemrelease": [
+        "6",
+        "7",
         "8"
       ]
     },
     {
       "operatingsystem": "Scientific",
       "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "Debian",
-      "operatingsystemrelease": [
-        "9"
-      ]
-    },
-    {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [
-        "18.04"
+        "6",
+        "7",
+        "8"
       ]
     },
     {
       "operatingsystem": "Fedora",
       "operatingsystemrelease": [
-        "29"
+        "30",
+        "31",
+        "32"
       ]
     },
     {
@@ -63,13 +63,49 @@
       "operatingsystemrelease": [
         "15"
       ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "16.04",
+        "18.04",
+        "18.10",
+        "19.04",
+        "19.10",
+        "20.04"
+      ]
+    },
+    {
+      "operatingsystem": "FreeBSD",
+      "operatingsystemrelease": [
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "operatingsystem": "ArchLinux"
     }
   ],
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.10.0 < 7.0.0"
+      "version_requirement": ">= 5.5.10 < 7.0.0"
     }
+  ],
+  "tags": [
+    "jq",
+    "json",
+    "parser"
   ],
   "pdk-version": "1.18.0",
   "template-url": "pdk-default#1.18.0",
