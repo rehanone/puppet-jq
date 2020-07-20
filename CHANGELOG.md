@@ -1,11 +1,7 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+## 1.0.0 (July 20, 2020)
 
-## Release 0.1.0
+**Features:**
 
-**Features**
-
-**Bugfixes**
-
-**Known Issues**
+  - Initial release
