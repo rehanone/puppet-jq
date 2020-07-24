@@ -1,5 +1,10 @@
 ---
 
+jq::package_source: github
+jq::package_manage: true
+jq::package_ensure: present
+jq::package_name: 'jq'
+
 jq::download_version: '1.6'
 jq::download_url: 'https://github.com/stedolan/jq/releases/download'
 jq::download_dir: '/opt/jq'

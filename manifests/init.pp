@@ -1,5 +1,9 @@
 
 class jq (
+  Enum[github, os]      $package_source,
+  Boolean               $package_manage,
+  String                $package_ensure,
+  String                $package_name,
   String[1]             $download_version,
   Stdlib::Httpsurl      $download_url,
   Stdlib::Absolutepath  $download_dir,

@@ -49,6 +49,10 @@ include jq
 Otherwise using the parameters:  
 ```puppet
   class{ 'jq':
+    package_source   => 'os',
+    package_manage   => true,
+    package_ensure   => present,
+    package_name     => 'jq',
     download_version => '1.6',
     download_url     => 'https://github.com/stedolan/jq/releases/download',
     download_dir     => '/opt/jq',
@@ -58,16 +62,24 @@ Otherwise using the parameters:
 
 ##### Parameters
 
-* **download_version**: The version of `jq` to install. The default is the latest version available.
-* **download_url**: Download URL for `jq`. The default is github releases page of `jq`.
-* **download_dir**: Location where the `jq` binaries are being downloaded. Defaults to `/opt/jq`
-* **install_dir**: Location where the `jq` binaries are linked to that makes them available to system path. Defaults to `/usr/local/bin`.
+* **package_source**: Allows control over where the `jq` package is sourced from. The two possible values are `github` and `os`. The default is `github`.
+* **package_manage**: Controls the wget package management by this module. The default is `true`. If it is `false`, this module will not manage jq.
+* **package_ensure**: Sets the ensure parameter passed to the package. The default is `present`.
+* **package_name**: Provides the package name to be installed. The default is `jq`. It can be used on systems where the default name is other than that.
+* **download_version**: The version of `jq` to install. The default is the latest version available. This value only gets used if the `package_source` is set to `github`.
+* **download_url**: Download URL for `jq`. The default is github releases page of `jq`. This value only gets used if the `package_source` is set to `github`.
+* **download_dir**: Location where the `jq` binaries are being downloaded. Defaults to `/opt/jq`. This value only gets used if the `package_source` is set to `github`.
+* **install_dir**: Location where the `jq` binaries are linked to that makes them available to system path. Defaults to `/usr/local/bin`. This value only gets used if the `package_source` is set to `github`.
 
 
 All of this data can be provided through `Hiera`. 
 
 **YAML**
 ```yaml
+jq::package_source: 'github'
+jq::package_manage: true
+jq::package_ensure: present
+jq::package_name: 'jq'
 jq::download_version: '1.6'
 jq::download_url: 'https://github.com/stedolan/jq/releases/download'
 jq::download_dir: '/opt/jq'
