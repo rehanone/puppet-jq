@@ -9,8 +9,8 @@ describe 'jq' do
       end
 
       it { is_expected.to compile.with_all_deps }
-      describe 'Testing the dependancies between the classes' do
-        it { is_expected.to contain_class('wget::install') }
+      describe 'Testing the dependencies between the classes' do
+        it { is_expected.to contain_class('jq::install') }
       end
     end
   end
