@@ -1,6 +1,6 @@
 # jq
 
-[![Puppet Forge](http://img.shields.io/puppetforge/v/rehan/jq.svg)](https://forge.puppetlabs.com/rehan/jq) [![Build Status](https://travis-ci.org/rehanone/puppet-jq.svg?branch=master)](https://travis-ci.org/rehanone/puppet-jq)
+[![Puppet Forge](http://img.shields.io/puppetforge/v/rehan/jq.svg)](https://forge.puppetlabs.com/rehan/jq) [![Build Status](https://travis-ci.com/rehanone/puppet-jq.svg?branch=master)](https://travis-ci.com/rehanone/puppet-jq)
 
 #### Table of Contents
 
@@ -31,9 +31,7 @@ The module can be used with `hiera` to provide all configuration options. See [U
 
 ### Setup Requirements
 
-This module is designed to be as clean and compliant with latest puppet code guidelines. It works with:
-
-  - `puppet >=5.5.10`
+This module is designed to be as clean and compliant with latest puppet code guidelines.
 
 ## Usage
 

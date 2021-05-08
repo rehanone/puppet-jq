@@ -11,17 +11,16 @@ class jq::install inherits jq {
 
   if $jq::package_manage {
     case $jq::package_source {
-      os: {
+      'os': {
         file { "${jq::install_dir}/jq":
           ensure => absent,
         }
 
         package { $jq::package_name:
           ensure => $jq::package_ensure,
-          alias  => 'jq',
         }
       }
-      github: {
+      'github': {
         package { $jq::package_name:
           ensure => absent,
         }
@@ -33,7 +32,7 @@ class jq::install inherits jq {
           mode   => '0755',
         }
 
-        require ::wget
+        require wget
         wget::retrieve { "${jq::download_url}/jq-${jq::download_version}/${binary}":
           destination => "${jq::download_dir}/${binary}",
           verbose     => true,
