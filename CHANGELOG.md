@@ -1,4 +1,10 @@
-# Changelog
+## 1.2.0 (May 14, 2021)
+
+**Improvements:**
+
+- Added `puppet 7` as a supported version.
+- Updated os support matrix.
+- Updated `pdk` templates.
 
 ## 1.1.0 (July 24, 2020)
 
