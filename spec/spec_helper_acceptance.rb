@@ -1,24 +1,6 @@
-require 'beaker-rspec'
-require 'beaker-puppet'
-require 'beaker/puppet_install_helper'
-require 'beaker/module_install_helper'
+# frozen_string_literal: true
 
-UNSUPPORTED_PLATFORMS = ['windows', 'darwin'].freeze
+require 'puppet_litmus'
+PuppetLitmus.configure!
 
-run_puppet_install_helper unless ENV['BEAKER_provision'] == 'no'
-install_ca_certs unless ENV['PUPPET_INSTALL_TYPE'].match?(%r{pe}i)
-install_module_on(hosts)
-install_module_dependencies_on(hosts)
-
-RSpec.configure do |c|
-  # Readable test descriptions
-  c.formatter = :documentation
-
-  # Configure all nodes in nodeset
-  c.before :suite do
-  end
-end
-
-def return_puppet_version
-  (on default, puppet('--version')).output.chomp
-end
+require 'spec_helper_acceptance_local' if File.file?(File.join(File.dirname(__FILE__), 'spec_helper_acceptance_local.rb'))
