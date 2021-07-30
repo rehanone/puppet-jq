@@ -27,6 +27,12 @@
       ]
     },
     {
+      "operatingsystem": "Rocky",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
         "6",
@@ -53,9 +59,9 @@
     {
       "operatingsystem": "Fedora",
       "operatingsystemrelease": [
-        "30",
-        "31",
-        "32"
+        "32",
+        "33",
+        "34"
       ]
     },
     {
@@ -69,7 +75,8 @@
       "operatingsystemrelease": [
         "8",
         "9",
-        "10"
+        "10",
+        "11"
       ]
     },
     {
@@ -96,8 +103,7 @@
     "json",
     "parser"
   ],
-  "pdk-version": "2.1.0",
-  "template-url": "pdk-default#2.1.0",
-  "template-ref": "tags/2.1.0-0-ga675ea5"
+  "pdk-version": "2.1.1",
+  "template-url": "pdk-default#2.1.1",
+  "template-ref": "tags/2.1.1-0-g03daa92"
 }
-

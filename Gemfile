@@ -48,8 +48,6 @@ group :system_tests do
   gem "beaker", '~> 4.0',                                       require: false
   gem "beaker-hostgenerator",                                   require: false
   gem "beaker-puppet",                                          require: false
-  gem "beaker-puppet_install_helper",                           require: false
-  gem "beaker-module_install_helper",                           require: false
   gem "beaker-rspec",                                           require: false
   gem "beaker-docker",                                          require: false
 end
