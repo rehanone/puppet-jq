@@ -35,51 +35,45 @@
       ]
     },
     {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "6",
-        "7",
-        "8"
-      ]
+      "operatingsystem": "OracleLinux"
     },
     {
-      "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "6",
-        "7",
-        "8"
-      ]
+      "operatingsystem": "Scientific"
     },
     {
-      "operatingsystem": "Fedora",
-      "operatingsystemrelease": [
-        "30",
-        "31",
-        "32"
-      ]
+      "operatingsystem": "Fedora"
     },
     {
-      "operatingsystem": "SLES",
-      "operatingsystemrelease": [
-        "15"
-      ]
+      "operatingsystem": "Rocky"
+    },
+    {
+      "operatingsystem": "AlmaLinux"
+    },
+    {
+      "operatingsystem": "SLES"
     },
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "8",
         "9",
-        "10"
+        "10",
+        "11"
       ]
     },
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "14.04",
         "16.04",
         "18.04",
-        "20.04"
+        "20.04",
+        "22.04"
       ]
+    },
+    {
+      "operatingsystem": "FreeBSD"
+    },
+    {
+      "operatingsystem": "DragonFly"
     },
     {
       "operatingsystem": "ArchLinux"
@@ -88,7 +82,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.5.10 < 8.0.0"
+      "version_requirement": ">= 6.0.0 < 8.0.0"
     }
   ],
   "tags": [
@@ -96,8 +90,7 @@
     "json",
     "parser"
   ],
-  "pdk-version": "2.1.0",
-  "template-url": "pdk-default#2.1.0",
-  "template-ref": "tags/2.1.0-0-ga675ea5"
+  "pdk-version": "2.5.0",
+  "template-url": "pdk-default#2.5.0",
+  "template-ref": "tags/2.5.0-0-g369d483"
 }
-

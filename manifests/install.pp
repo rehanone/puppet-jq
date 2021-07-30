@@ -1,5 +1,4 @@
 class jq::install inherits jq {
-
   assert_private("Use of private class ${name} by ${caller_module_name}")
 
   $binary = $::facts['architecture'] ? {
@@ -37,7 +36,7 @@ class jq::install inherits jq {
           destination => "${jq::download_dir}/${binary}",
           verbose     => true,
           mode        => '0755',
-          require     => File[ $jq::download_dir],
+          require     => File[$jq::download_dir],
         }
         -> file { "${jq::download_dir}/${binary}":
           ensure => file,
