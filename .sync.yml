@@ -18,6 +18,11 @@ appveyor.yml:
 
 .travis.yml:
   dist: focal
+  use_litmus: true
+  litmus:
+    provision_list:
+      - docker
+    install_wget: true
   simplecov: false
   before_install_pre:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin || true
@@ -79,22 +84,27 @@ appveyor.yml:
 Gemfile:
   required:
     ':development':
-#      - gem: 'puppet-lint-absolute_template_path'
-#      - gem: 'puppet-lint-absolute_classname-check'
-#      - gem: 'puppet-lint-alias-check'
-#      - gem: 'puppet-lint-classes_and_types_beginning_with_digits-check'
-#      - gem: 'puppet-lint-concatenated_template_files-check'
-#      - gem: 'puppet-lint-file_ensure-check'
-#      - gem: 'puppet-lint-file_source_rights-check'
-#      - gem: 'puppet-lint-leading_zero-check'
-#      - gem: 'puppet-lint-resource_reference_syntax'
-#      - gem: 'puppet-lint-strict_indent-check'
-#      - gem: 'puppet-lint-top_scope_facts-check'
-#      - gem: 'puppet-lint-topscope-variable-check'
-#      - gem: 'puppet-lint-trailing_comma-check'
-#      - gem: 'puppet-lint-unquoted_string-check'
-#      - gem: 'puppet-lint-variable_contains_upcase'
-#      - gem: 'puppet-lint-version_comparison-check'
+      - gem: 'puppet-lint-absolute_template_path'
+      - gem: 'puppet-lint-absolute_classname-check'
+      - gem: 'puppet-lint-alias-check'
+      - gem: 'puppet-lint-classes_and_types_beginning_with_digits-check'
+      - gem: 'puppet-lint-concatenated_template_files-check'
+      - gem: 'puppet-lint-file_ensure-check'
+      - gem: 'puppet-lint-file_source_rights-check'
+      - gem: 'puppet-lint-leading_zero-check'
+      - gem: 'puppet-lint-resource_reference_syntax'
+      - gem: 'puppet-lint-strict_indent-check'
+      - gem: 'puppet-lint-top_scope_facts-check'
+      - gem: 'puppet-lint-topscope-variable-check'
+      - gem: 'puppet-lint-trailing_comma-check'
+      - gem: 'puppet-lint-unquoted_string-check'
+      - gem: 'puppet-lint-variable_contains_upcase'
+      - gem: 'puppet-lint-version_comparison-check'
+      - gem: 'puppet_litmus'
+        git: 'https://github.com/puppetlabs/puppet_litmus.git'
+        branch: main
+      - gem: 'serverspec'
+      - gem: 'hiera-puppet-helper'
     # https://github.com/puppetlabs/pdk-templates#enabling-beaker-system-tests
     ':system_tests':
       - gem: 'puppet-module-posix-system-r#{minor_version}'
@@ -112,12 +122,18 @@ Gemfile:
       - gem: 'beaker-puppet'
       - gem: 'beaker-rspec'
       - gem: 'beaker-docker'
+      - gem: 'puppet_litmus'
+        git: 'https://github.com/puppetlabs/puppet_litmus.git'
+        branch: main
+      - gem: 'serverspec'
+      - gem: 'hiera-puppet-helper'
 
 Rakefile:
   linter_fail_on_warnings: true
 
 spec/spec_helper.rb:
   coverage_report: true
+  mock_with: ':rspec'
 
 spec/spec.opts:
   delete: true

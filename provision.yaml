@@ -1,0 +1,17 @@
+---
+default:
+  provisioner: docker
+  images: ['centos:7']
+docker:
+  provisioner: docker
+  images: ['centos:7', 'ubuntu:18.04']
+vagrant:
+  provisioner: vagrant
+  images: ['centos/7', 'generic/ubuntu1804']
+
+travis_deb:
+  provisioner: docker
+  images: ['ubuntu:18.04']
+travis_el:
+  provisioner: docker
+  images: ['centos:7']
