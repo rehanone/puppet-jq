@@ -13,7 +13,7 @@ package_source =
     'github'
   end
 
-describe 'jq class:', unless: UNSUPPORTED_PLATFORMS.include?(fact('osfamily')) do
+describe 'jq class:', unless: UNSUPPORTED_PLATFORMS.include?(os[:family]) do
   it 'jq is expected run successfully' do
     pp = "class { 'jq': }"
 

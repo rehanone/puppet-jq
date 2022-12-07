@@ -5,3 +5,5 @@ fixtures:
   forge_modules:
     stdlib: "puppetlabs/stdlib"
     wget: "rehan/wget"
+  symlinks:
+    jq: "#{source_dir}"

@@ -1,4 +1,4 @@
-
+# Class jq
 class jq (
   Enum[github, os]      $package_source,
   Boolean               $package_manage,
